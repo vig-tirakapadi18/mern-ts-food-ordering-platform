@@ -18,7 +18,7 @@ const MobileNav = () => {
           size={44}
         />
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="space-y-3">
         <SheetTitle>
           <span>
             Welcome to <strong>VFoods!</strong>
