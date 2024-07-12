@@ -14,7 +14,7 @@ const MobileNav = () => {
     <Sheet>
       <SheetTrigger>
         <CgMenuOreos
-          className="text-stone-700 absolute top-6 right-4"
+          className="text-stone-800 absolute top-6 right-4"
           size={44}
         />
       </SheetTrigger>
