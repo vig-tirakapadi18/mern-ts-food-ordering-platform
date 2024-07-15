@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
 import mongoose from "mongoose";
+import userRoute from "./src/routes/user.route";
 
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -17,9 +17,7 @@ mongoose
   .then(() => console.log("Connection established with MongoDB!"))
   .catch((err) => console.log(err));
 
-app.get("/test", (req: Request, res: Response) => {
-  res.json({ message: "Working!" });
-});
+app.use("/api/my/user", userRoute);
 
 const PORT = process.env.PORT || 5000;
 
