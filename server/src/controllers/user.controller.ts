@@ -17,3 +17,27 @@ export const createCurrentUser = async (req: Request, res: Response) => {
     res.status(500).send("Error creating the user!");
   }
 };
+
+export const updateCurrentUser = async (req: Request, res: Response) => {
+  const { name, addressLine1, country, city } = req.body;
+
+  const user = await User.findById(req.userId);
+
+  if (!user)
+    return res.status(404).send({ success: false, message: "User not found!" });
+
+  user.name = name;
+  user.addressLine1 = addressLine1;
+  user.country = country;
+  user.city = city;
+
+  await user.save();
+
+  try {
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: false, message: "Error updating the user!" });
+  }
+};
